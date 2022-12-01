@@ -10,13 +10,13 @@ type JWTUtil struct {
 	EncodingString string
 }
 
-func (j JWTUtil) getToken(appId string, appSecret string) string {
+func (j JWTUtil) GetToken(appId string, appSecret string) string {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"foo": "bar",
 		"nbf": time.Date(2022, 10, 10, 12, 0, 0, 0, time.UTC).Unix(),
 	})
 
-	tokenString, err := token.SignedString(j.EncodingString)
+	tokenString, err := token.SignedString([]byte(j.EncodingString))
 
 	fmt.Println(tokenString, err)
 	if err != nil {
