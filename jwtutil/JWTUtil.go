@@ -7,7 +7,7 @@ import (
 )
 
 type JWTUtil struct {
-	encodingString string
+	EncodingString string
 }
 
 func (j JWTUtil) getToken(appId string, appSecret string) string {
@@ -16,7 +16,7 @@ func (j JWTUtil) getToken(appId string, appSecret string) string {
 		"nbf": time.Date(2022, 10, 10, 12, 0, 0, 0, time.UTC).Unix(),
 	})
 
-	tokenString, err := token.SignedString(j.encodingString)
+	tokenString, err := token.SignedString(j.EncodingString)
 
 	fmt.Println(tokenString, err)
 	if err != nil {

@@ -6,6 +6,6 @@ import (
 
 func main() {
 	util := oauth2Project.JWTUtil{
-		encodingString: "something",
+		EncodingString: "something",
 	}
 }
